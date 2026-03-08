@@ -5,8 +5,9 @@ Downloads the latest Bing images of the day to a local folder for use as macOS d
 ## Setup
 
 ```bash
-pip install -r requirements.txt
-python3 fetch_weekly.py
+python3 -m venv venv
+./venv/bin/pip install -r requirements.txt
+./venv/bin/python fetch_weekly.py
 ```
 
 Optional: set `WALLPAPER_DIR` to save images somewhere other than `~/Pictures/bingimages`.
@@ -15,8 +16,9 @@ Optional: set `WALLPAPER_DIR` to save images somewhere other than `~/Pictures/bi
 
 To run automatically every Monday at 9:00 AM:
 
-1. Copy the plist and fix the path in `ProgramArguments` to match where you cloned this repo (e.g. `$HOME/projects/wallbing-fetcher`).
-2. Install: `cp com.wallbing.weekly.plist ~/Library/LaunchAgents/` then `launchctl load ~/Library/LaunchAgents/com.wallbing.weekly.plist`.
+1. Create the venv (see Setup above) so the job has `requests` available.
+2. Copy the plist and set `WorkingDirectory` and the path inside `ProgramArguments` to your repo path (e.g. `/Users/you/projects/wallbing-fetcher` and `.../wallbing-fetcher/venv/bin/python`).
+3. Install: `cp com.wallbing.weekly.plist ~/Library/LaunchAgents/` then `launchctl load ~/Library/LaunchAgents/com.wallbing.weekly.plist`.
 
 Logs: `/tmp/wallbing.log` and `/tmp/wallbing.err`.
 

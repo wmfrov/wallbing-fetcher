@@ -6,11 +6,13 @@
   <key>Label</key>
   <string>com.wallbing.weekly</string>
 
+  <key>WorkingDirectory</key>
+  <string>/Users/will.ziegler/projects/wallbing-fetcher</string>
+
   <key>ProgramArguments</key>
   <array>
-    <string>/bin/bash</string>
-    <string>-c</string>
-    <string>cd "$HOME/projects/wallbing-fetcher" &amp;&amp; python3 fetch_weekly.py</string>
+    <string>/Users/will.ziegler/projects/wallbing-fetcher/venv/bin/python3.13</string>
+    <string>fetch_weekly.py</string>
   </array>
 
   <!-- Run every Monday at 9:00 AM -->
